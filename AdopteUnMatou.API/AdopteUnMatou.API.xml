@@ -4,5 +4,84 @@
         <name>AdopteUnMatou.API</name>
     </assembly>
     <members>
+        <member name="M:AdopteUnMatou.API.Controllers.AuthenticationController.Register(AdopteUnMatou.API.Models.Users.RegisterModel)">
+            <summary>
+            Register a new user to the database
+            </summary>
+            <param name="registerModel"></param>
+            <response code="400">There was one or more errors during registration validation</response>
+            <response code="200">Return the newly registrated user's id</response>
+            <returns></returns>
+        </member>
+        <member name="P:AdopteUnMatou.API.Entities.User.ProfilePictureId">
+            <summary>
+            The user's profile picture
+            </summary>
+            <example>45d5ae0ad9221e701ceeba5b</example>
+        </member>
+        <member name="P:AdopteUnMatou.API.Entities.User.FirstName">
+            <summary>
+            The user's first name
+            </summary>
+            <example>Victor</example>
+        </member>
+        <member name="P:AdopteUnMatou.API.Entities.User.LastName">
+            <summary>
+            The user's last name
+            </summary>
+            <example>DENIS</example>
+        </member>
+        <member name="P:AdopteUnMatou.API.Entities.User.Email">
+            <summary>
+            The user's email
+            </summary>
+            <example>admin@feldrise.com</example>
+        </member>
+        <member name="P:AdopteUnMatou.API.Entities.User.Role">
+            <summary>
+            The user's role. The roles are : Admin, Adoptant
+            </summary>
+            <example>Adoptant</example>
+        </member>
+        <member name="P:AdopteUnMatou.API.Entities.User.Token">
+            <summary>
+            The user's connection token
+            </summary>
+        </member>
+        <member name="P:AdopteUnMatou.API.Models.Users.RegisterModel.ProfilePicture">
+            <summary>
+            The user's profile picture
+            </summary>
+        </member>
+        <member name="P:AdopteUnMatou.API.Models.Users.RegisterModel.FirstName">
+            <summary>
+            The user's first name
+            </summary>
+            <example>Victor</example>
+        </member>
+        <member name="P:AdopteUnMatou.API.Models.Users.RegisterModel.LastName">
+            <summary>
+            The user's last name
+            </summary>
+            <example>DENIS</example>
+        </member>
+        <member name="P:AdopteUnMatou.API.Models.Users.RegisterModel.Email">
+            <summary>
+            The user's email
+            </summary>
+            <example>admin@feldrise.com</example>
+        </member>
+        <member name="P:AdopteUnMatou.API.Models.Users.RegisterModel.Password">
+            <summary>
+            The user's password
+            </summary>
+            <example>MySuperSecurePassword</example>
+        </member>
+        <member name="P:AdopteUnMatou.API.Models.Users.RegisterModel.Role">
+            <summary>
+            The user's role. The roles are : Admin, Adoptant
+            </summary>
+            <example>Adoptant</example>
+        </member>
     </members>
 </doc>

@@ -1,3 +1,7 @@
+using AdopteUnMatou.API.Services;
+using AdopteUnMatou.API.Services.Interfaces;
+using AdopteUnMatou.API.Settings;
+using AdopteUnMatou.API.Settings.Interfaces;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -6,6 +10,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
+using Microsoft.Extensions.Options;
 using Microsoft.OpenApi.Models;
 using System;
 using System.Collections.Generic;
@@ -27,6 +32,10 @@ namespace AdopteUnMatou.API
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            services.Configure<MongoSettings>(Configuration.GetSection(nameof(MongoSettings)));
+
+            services.AddSingleton<IMongoSettings>(Span => Span.GetRequiredService<IOptions<MongoSettings>>().Value);
+
             services.AddCors(options =>
             {
                 options.AddPolicy("developerPolicy", builder =>
@@ -38,6 +47,8 @@ namespace AdopteUnMatou.API
                         .AllowCredentials();
                 });
             });
+
+            services.AddScoped<IAuthenticationService, AuthenticationService>();
 
             services.AddControllers();
             services.AddSwaggerGen(c =>
