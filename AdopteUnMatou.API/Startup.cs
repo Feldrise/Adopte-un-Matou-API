@@ -9,6 +9,7 @@ using Microsoft.Extensions.Logging;
 using Microsoft.OpenApi.Models;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -30,18 +31,39 @@ namespace AdopteUnMatou.API
             services.AddControllers();
             services.AddSwaggerGen(c =>
             {
-                c.SwaggerDoc("v1", new OpenApiInfo { Title = "AdopteUnMatou.API", Version = "v1" });
+                c.SwaggerDoc("v1", new OpenApiInfo { 
+                    Version = "v1",
+                    Title = "AdopteUnMatou.API",
+                    Description = "l'API de Adopte un Matou",
+                    Contact = new OpenApiContact
+                    {
+                        Name = "Victor (Feldrise) DENIS",
+                        Email = "contact@feldrise.com",
+                        Url = new Uri("https://feldrise.com")
+                    }
+                });
+
+                var filepath = Path.Combine(System.AppContext.BaseDirectory, "AdopteUnMatou.API.xml");
+                c.IncludeXmlComments(filepath);
             });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
+            app.UseStaticFiles();
+
+            app.UseSwagger();
+            app.UseSwaggerUI(c => {
+                c.SwaggerEndpoint("/swagger/v1/swagger.json", "AdopteUnMatou.API v1");
+                c.InjectJavascript("/swagger/themes/theme-material.css");
+                c.InjectJavascript("/swagger/custom-script.js", "text/javascript");
+                c.RoutePrefix = "documentation";
+            });
+            
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
-                app.UseSwagger();
-                app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "AdopteUnMatou.API v1"));
             }
 
             app.UseHttpsRedirection();
