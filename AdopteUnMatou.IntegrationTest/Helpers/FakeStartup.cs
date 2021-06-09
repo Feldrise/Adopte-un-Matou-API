@@ -10,6 +10,7 @@ using Microsoft.Extensions.Options;
 using Microsoft.OpenApi.Models;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using System.Reflection;
@@ -68,6 +69,10 @@ namespace AdopteUnMatou.IntegrationTest.Helpers
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
+            // First we need to clear and get a new database
+            var path = Directory.GetCurrentDirectory() + "\\..\\..\\..\\database_filling_script_test.js";
+            Process.Start("mongo", "localhost:27017/AdopteUnMatouTestDb " + path);
+
             app.UseStaticFiles();
 
             app.UseSwagger();

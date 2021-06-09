@@ -53,6 +53,7 @@ namespace AdopteUnMatou.API.Entities
         /// <summary>
         /// The user's connection token
         /// </summary>
+        [BsonIgnore]
         public string Token { get; set; }
 
 
