@@ -4,6 +4,15 @@
         <name>AdopteUnMatou.API</name>
     </assembly>
     <members>
+        <member name="M:AdopteUnMatou.API.Controllers.AuthenticationController.Login(AdopteUnMatou.API.Models.Users.LoginModel)">
+            <summary>
+            Login a user to the API
+            </summary>
+            <param name="loginModel"></param>
+            <response code="400">The user doesn't exist or the password doesn't match</response>
+            <response code="200">Return the logged user with valid token</response>
+            <returns></returns>
+        </member>
         <member name="M:AdopteUnMatou.API.Controllers.AuthenticationController.Register(AdopteUnMatou.API.Models.Users.RegisterModel)">
             <summary>
             Register a new user to the database
@@ -47,6 +56,18 @@
             <summary>
             The user's connection token
             </summary>
+        </member>
+        <member name="P:AdopteUnMatou.API.Models.Users.LoginModel.Email">
+            <summary>
+            The user's email
+            </summary>
+            <example>admin@feldrise.com</example>
+        </member>
+        <member name="P:AdopteUnMatou.API.Models.Users.LoginModel.Password">
+            <summary>
+            The user's password
+            </summary>
+            <example>MySyperSecurePassword</example>
         </member>
         <member name="P:AdopteUnMatou.API.Models.Users.RegisterModel.ProfilePicture">
             <summary>

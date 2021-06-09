@@ -1,4 +1,5 @@
-﻿using AdopteUnMatou.API.Models.Users;
+﻿using AdopteUnMatou.API.Entities;
+using AdopteUnMatou.API.Models.Users;
 using AdopteUnMatou.API.Services.Interfaces;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -18,6 +19,26 @@ namespace AdopteUnMatou.API.Controllers
         public AuthenticationController(IAuthenticationService authenticationService)
         {
             _authenticationService = authenticationService;
+        }
+
+        /// <summary>
+        /// Login a user to the API
+        /// </summary>
+        /// <param name="loginModel"></param>
+        /// <response code="400">The user doesn't exist or the password doesn't match</response>
+        /// <response code="200">Return the logged user with valid token</response>
+        /// <returns></returns>
+        [HttpPost("login")]
+        public async Task<ActionResult<User>> Login([FromBody] LoginModel loginModel)
+        {
+            User user = await _authenticationService.LoginAsync(loginModel.Email, loginModel.Password);
+
+            if (user == null)
+            {
+                return BadRequest("The username or password is incorrect");
+            }
+
+            return Ok(user);
         }
 
         /// <summary>
