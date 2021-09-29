@@ -1,4 +1,5 @@
-﻿using AdopteUnMatou.API.Entities;
+﻿using AdopteUnMatou.API.DataProvider.Interfaces;
+using AdopteUnMatou.API.Entities;
 using AdopteUnMatou.API.Models.Users;
 using AdopteUnMatou.API.Services.Interfaces;
 using AdopteUnMatou.API.Settings.Interfaces;
@@ -16,8 +17,7 @@ namespace AdopteUnMatou.API.Services
 {
     public class AuthenticationService : IAuthenticationService
     {
-        private readonly IMongoCollection<User> _users;
-
+        private readonly IDPUser _dpUsers;
         private readonly IAdopteUnMatouSettings _adopteUnMatouSettings;
 
         public async Task<User> LoginAsync(string email, string password)
@@ -29,9 +29,7 @@ namespace AdopteUnMatou.API.Services
                 return null;
             }
 
-            var user = await (await _users.FindAsync(dbUser =>
-                dbUser.Email == email.ToLower() 
-            )).FirstOrDefaultAsync();
+            User user = await _dpUsers.GetFiltered(dbUser => dbUser.Email == email).FirstOrDefaultAsync();
 
             if (user == null) { return null; }
             if (!VerifyPasswordHash(password, user.PasswordHash, user.PasswordSalt)) { return null; }
@@ -43,12 +41,9 @@ namespace AdopteUnMatou.API.Services
             return user;
         }
 
-        public AuthenticationService(IMongoSettings mongoSettings, IAdopteUnMatouSettings adopteUnMatouSettings)
+        public AuthenticationService(IDPUser dpUsers, IAdopteUnMatouSettings adopteUnMatouSettings)
         {
-            var mongoClient = new MongoClient(mongoSettings.ConnectionString);
-            var database = mongoClient.GetDatabase(mongoSettings.DatabaseName);
-
-            _users = database.GetCollection<User>(mongoSettings.UsersCollectionName);
+            _dpUsers = dpUsers;
 
             _adopteUnMatouSettings = adopteUnMatouSettings;
         }
@@ -77,14 +72,14 @@ namespace AdopteUnMatou.API.Services
                 Role = registerModel.Role
             };
 
-            await _users.InsertOneAsync(dbUser);
+            await _dpUsers.GetCollection().InsertOneAsync(dbUser);
 
             return dbUser.Id;
         }
 
         private bool UserExist(string email)
         {
-            return _users.AsQueryable().Any(dbUser =>
+            return _dpUsers.Obtain().Any(dbUser =>
                 dbUser.Email == email.ToLower() 
             );
         }

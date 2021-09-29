@@ -34,13 +34,11 @@ namespace AdopteUnMatou.IntegrationTest.Helpers
         {
             services.Configure<MongoSettings>(Configuration.GetSection(nameof(MongoSettings)));
             services.Configure<AdopteUnMatouSettings>(Configuration.GetSection(nameof(AdopteUnMatouSettings)));
-
+            services.InitLocator(Configuration);
             services.AddSingleton<IMongoSettings>(Span => Span.GetRequiredService<IOptions<MongoSettings>>().Value);
             services.AddSingleton<IAdopteUnMatouSettings>(Span => Span.GetRequiredService<IOptions<AdopteUnMatouSettings>>().Value);
 
             // JWT Authentication
-            services.AddScoped<IAuthenticationService, AuthenticationService>();
-
             services.AddAuthentication(FakeJwtBearerDefaults.AuthenticationScheme).AddFakeJwtBearer();
             services.AddControllers();
 
