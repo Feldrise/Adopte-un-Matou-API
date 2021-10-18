@@ -16,8 +16,11 @@ namespace AdopteUnMatou.API
         public static void InitLocator(this IServiceCollection services, IConfiguration configuration)
         {
             services.AddScoped<IAuthenticationService, AuthenticationService>();
+            services.AddScoped<ICatsService, CatsService>();
+            services.AddScoped<IFilesService, FilesService>();
 
             services.AddScoped<IDPUser, DPUser>();
+            services.AddScoped<IDPCats, DPCats>();
         }
     }
 }

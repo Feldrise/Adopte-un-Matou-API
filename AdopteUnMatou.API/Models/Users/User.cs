@@ -6,7 +6,7 @@ using System.Linq;
 using System.Text.Json.Serialization;
 using System.Threading.Tasks;
 
-namespace AdopteUnMatou.API.Entities
+namespace AdopteUnMatou.API.Models.Users
 {
     public class User
     {

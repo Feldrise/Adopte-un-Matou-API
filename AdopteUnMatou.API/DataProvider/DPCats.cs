@@ -1,6 +1,6 @@
 ﻿using AdopteUnMatou.API.Contexts;
 using AdopteUnMatou.API.DataProvider.Interfaces;
-using AdopteUnMatou.API.Models.Users;
+using AdopteUnMatou.API.Models.Cats;
 using AdopteUnMatou.API.Settings;
 using Microsoft.Extensions.Options;
 using MongoDB.Driver;
@@ -13,33 +13,33 @@ using System.Threading.Tasks;
 
 namespace AdopteUnMatou.API.DataProvider
 {
-    public class DPUser : IDPUser
+    public class DPCats : IDPCats
     {
         private readonly AdopteUnMatouContext _context;
 
-        public DPUser(IOptions<MongoSettings> settings)
+        public DPCats(IOptions<MongoSettings> settings)
         {
             _context = new AdopteUnMatouContext(settings);
         }
 
-        public IMongoQueryable<User> Obtain()
+        public IMongoQueryable<Cat> Obtain()
         {
-            return _context.User.AsQueryable();
+            return _context.Cat.AsQueryable();
         }
 
-        public IMongoCollection<User> GetCollection()
+        public IMongoCollection<Cat> GetCollection()
         {
-            return _context.User;
+            return _context.Cat;
         }
 
-        public IMongoQueryable<User> GetUserById(string id)
+        public IMongoQueryable<Cat> GetCatById(string id)
         {
-            return _context.User.AsQueryable().Where(dbUser => dbUser.Id == id);
+            return _context.Cat.AsQueryable().Where(dbCat => dbCat.Id == id);
         }
 
-        public IMongoQueryable<User> GetFiltered(Expression<Func<User, bool>> predicate)
+        public IMongoQueryable<Cat> GetFiltered(Expression<Func<Cat, bool>> predicate)
         {
-            return _context.User.AsQueryable().Where(predicate);
+            return _context.Cat.AsQueryable().Where(predicate);
         }
     }
 }

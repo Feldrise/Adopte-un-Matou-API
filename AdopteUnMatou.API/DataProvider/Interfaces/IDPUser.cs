@@ -1,4 +1,4 @@
-﻿using AdopteUnMatou.API.Entities;
+﻿using AdopteUnMatou.API.Models.Users;
 using MongoDB.Driver;
 using MongoDB.Driver.Linq;
 using System;

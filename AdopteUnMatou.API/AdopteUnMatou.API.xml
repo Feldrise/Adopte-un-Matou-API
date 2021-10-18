@@ -22,40 +22,134 @@
             <response code="200">Return the newly registrated user's id</response>
             <returns></returns>
         </member>
-        <member name="P:AdopteUnMatou.API.Entities.User.ProfilePictureId">
+        <member name="M:AdopteUnMatou.API.Controllers.CatsController.GetCats(System.String)">
             <summary>
-            The user's profile picture
+            Get all cats
             </summary>
-            <example>45d5ae0ad9221e701ceeba5b</example>
+            <returns></returns>
         </member>
-        <member name="P:AdopteUnMatou.API.Entities.User.FirstName">
+        <member name="M:AdopteUnMatou.API.Controllers.CatsController.GetCat(System.String)">
             <summary>
-            The user's first name
+            Get a cat by its id
             </summary>
-            <example>Victor</example>
+            <param name="id"></param>
+            <returns></returns>
         </member>
-        <member name="P:AdopteUnMatou.API.Entities.User.LastName">
+        <member name="M:AdopteUnMatou.API.Controllers.CatsController.GetCatImage(System.String)">
             <summary>
-            The user's last name
+            Get a cat image
             </summary>
-            <example>DENIS</example>
+            <param name="id"></param>
+            <returns></returns>
         </member>
-        <member name="P:AdopteUnMatou.API.Entities.User.Email">
+        <member name="M:AdopteUnMatou.API.Controllers.CatsController.CreateCat(AdopteUnMatou.API.Models.Cats.CatSubmitModel)">
             <summary>
-            The user's email
+            Create a cat
             </summary>
-            <example>admin@feldrise.com</example>
+            <param name="catModel"></param>
+            <returns></returns>
         </member>
-        <member name="P:AdopteUnMatou.API.Entities.User.Role">
+        <member name="M:AdopteUnMatou.API.Controllers.CatsController.UpdateCat(AdopteUnMatou.API.Models.Cats.CatSubmitModel)">
             <summary>
-            The user's role. The roles are : Admin, Adoptant
+            Update a cat
             </summary>
-            <example>Adoptant</example>
+            <param name="catModel"></param>
+            <returns></returns>
         </member>
-        <member name="P:AdopteUnMatou.API.Entities.User.Token">
+        <member name="P:AdopteUnMatou.API.Models.Cats.Cat.ImageId">
             <summary>
-            The user's connection token
+            The cat's image id
             </summary>
+            <example>6167e8ffba92f2bbb61f050c</example>
+        </member>
+        <member name="P:AdopteUnMatou.API.Models.Cats.Cat.AdoptionStatus">
+            <summary>
+            The cat's adoption status. Can be Waiting, Reserved, Adopted
+            </summary>
+            <example>Waiting</example>
+        </member>
+        <member name="P:AdopteUnMatou.API.Models.Cats.Cat.Name">
+            <summary>
+            The cat's name
+            </summary>
+            <example>Jack</example>
+        </member>
+        <member name="P:AdopteUnMatou.API.Models.Cats.Cat.Genre">
+            <summary>
+            The cat's gender. Can be Male or Female
+            </summary>
+            <example>Male</example>
+        </member>
+        <member name="P:AdopteUnMatou.API.Models.Cats.Cat.Age">
+            <summary>
+            The cat's age
+            </summary>
+            <example>7 mois</example>
+        </member>
+        <member name="P:AdopteUnMatou.API.Models.Cats.Cat.Price">
+            <summary>
+            The cat's price in €
+            </summary>
+            <example>179</example>
+        </member>
+        <member name="P:AdopteUnMatou.API.Models.Cats.Cat.Location">
+            <summary>
+            The cat location
+            </summary>
+            <example>Paris</example>
+        </member>
+        <member name="P:AdopteUnMatou.API.Models.Cats.Cat.Description">
+            <summary>
+            The cat description
+            </summary>
+            <example>Jack est un super chat...</example>
+        </member>
+        <member name="P:AdopteUnMatou.API.Models.Cats.CatSubmitModel.Image">
+            <summary>
+            The cat's image
+            </summary>
+        </member>
+        <member name="P:AdopteUnMatou.API.Models.Cats.CatSubmitModel.AdoptionStatus">
+            <summary>
+            The cat's adoption status. Can be Waiting, Reserved, Adopted
+            </summary>
+            <example>Waiting</example>
+        </member>
+        <member name="P:AdopteUnMatou.API.Models.Cats.CatSubmitModel.Name">
+            <summary>
+            The cat's name
+            </summary>
+            <example>Jack</example>
+        </member>
+        <member name="P:AdopteUnMatou.API.Models.Cats.CatSubmitModel.Genre">
+            <summary>
+            The cat's gender. Can be Male or Female
+            </summary>
+            <example>Male</example>
+        </member>
+        <member name="P:AdopteUnMatou.API.Models.Cats.CatSubmitModel.Age">
+            <summary>
+            The cat's age
+            </summary>
+            <example>7 mois</example>
+        </member>
+        <member name="P:AdopteUnMatou.API.Models.Cats.CatSubmitModel.Price">
+            <summary>
+            The cat's price in €
+            </summary>
+            <example>179</example>
+        </member>
+        <member name="P:AdopteUnMatou.API.Models.Cats.CatSubmitModel.Location">
+            <summary>
+            The cat location
+            </summary>
+            <example>Paris</example>
+        </member>
+        <member name="P:AdopteUnMatou.API.Models.Cats.CatSubmitModel.Description">
+            <summary>
+            The cat description
+            </summary>
+            <example>Jack est un super chat...</example>
         </member>
         <member name="P:AdopteUnMatou.API.Models.Users.LoginModel.Email">
             <summary>
@@ -103,6 +197,41 @@
             The user's role. The roles are : Admin, Adoptant
             </summary>
             <example>Adoptant</example>
+        </member>
+        <member name="P:AdopteUnMatou.API.Models.Users.User.ProfilePictureId">
+            <summary>
+            The user's profile picture
+            </summary>
+            <example>45d5ae0ad9221e701ceeba5b</example>
+        </member>
+        <member name="P:AdopteUnMatou.API.Models.Users.User.FirstName">
+            <summary>
+            The user's first name
+            </summary>
+            <example>Victor</example>
+        </member>
+        <member name="P:AdopteUnMatou.API.Models.Users.User.LastName">
+            <summary>
+            The user's last name
+            </summary>
+            <example>DENIS</example>
+        </member>
+        <member name="P:AdopteUnMatou.API.Models.Users.User.Email">
+            <summary>
+            The user's email
+            </summary>
+            <example>admin@feldrise.com</example>
+        </member>
+        <member name="P:AdopteUnMatou.API.Models.Users.User.Role">
+            <summary>
+            The user's role. The roles are : Admin, Adoptant
+            </summary>
+            <example>Adoptant</example>
+        </member>
+        <member name="P:AdopteUnMatou.API.Models.Users.User.Token">
+            <summary>
+            The user's connection token
+            </summary>
         </member>
     </members>
 </doc>
