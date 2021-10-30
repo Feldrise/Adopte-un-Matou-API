@@ -96,12 +96,18 @@ namespace AdopteUnMatou.API.Controllers
         /// <summary>
         /// Update a cat
         /// </summary>
+        /// <param name="id"></param>
         /// <param name="catModel"></param>
         /// <returns></returns>
         [HttpPut("{id:length(24)}")]
         [Authorize(Roles = Roles.Admin)]
-        public async Task<IActionResult> UpdateCat([FromBody] CatSubmitModel catModel)
+        public async Task<IActionResult> UpdateCat(string id, [FromBody] CatSubmitModel catModel)
         {
+            if (catModel.Id != id)
+            {
+                return BadRequest("The id of the cat doesn't match the ressource id");
+            }
+
             try
             {
                 Cat cat = _mapper.Map<Cat>(catModel);

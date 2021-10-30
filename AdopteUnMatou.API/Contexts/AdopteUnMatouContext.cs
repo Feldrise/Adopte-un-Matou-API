@@ -1,4 +1,5 @@
-﻿using AdopteUnMatou.API.Models.Cats;
+﻿using AdopteUnMatou.API.Models.Applications;
+using AdopteUnMatou.API.Models.Cats;
 using AdopteUnMatou.API.Models.Users;
 using AdopteUnMatou.API.Settings;
 using Microsoft.Extensions.Options;
@@ -26,5 +27,6 @@ namespace AdopteUnMatou.API.Contexts
 
         public IMongoCollection<User> User { get { return _database.GetCollection<User>("users"); } }
         public IMongoCollection<Cat> Cat { get { return _database.GetCollection<Cat>("cats"); } }
+        public IMongoCollection<Application> Application { get { return _database.GetCollection<Application>("applications"); } }
     }
 }

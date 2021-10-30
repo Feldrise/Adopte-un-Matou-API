@@ -1,4 +1,5 @@
-﻿using AdopteUnMatou.API.Models.Cats;
+﻿using AdopteUnMatou.API.Models.Applications;
+using AdopteUnMatou.API.Models.Cats;
 using AdopteUnMatou.API.Models.Users;
 using MongoDB.Driver;
 using System;
@@ -12,5 +13,6 @@ namespace AdopteUnMatou.API.Contexts
     {
         public IMongoCollection<User> User { get; }
         public IMongoCollection<Cat> Cat { get; }
+        public IMongoCollection<Application> Application { get; }
     }
 }

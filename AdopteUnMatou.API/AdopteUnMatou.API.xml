@@ -4,6 +4,35 @@
         <name>AdopteUnMatou.API</name>
     </assembly>
     <members>
+        <member name="M:AdopteUnMatou.API.Controllers.ApplicationsController.GetApplications(System.Boolean)">
+            <summary>
+            Get all applications
+            </summary>
+            <param name="shouldIncludeContent"></param>
+            <returns></returns>
+        </member>
+        <member name="M:AdopteUnMatou.API.Controllers.ApplicationsController.GetApplication(System.String)">
+            <summary>
+            Get an application by it's id
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:AdopteUnMatou.API.Controllers.ApplicationsController.CreateApplication(AdopteUnMatou.API.Models.Applications.Application)">
+            <summary>
+            Create an application
+            </summary>
+            <param name="application"></param>
+            <returns></returns>
+        </member>
+        <member name="M:AdopteUnMatou.API.Controllers.ApplicationsController.UpdateApplication(System.String,AdopteUnMatou.API.Models.Applications.Application)">
+            <summary>
+            Update an application
+            </summary>
+            <param name="id"></param>
+            <param name="application"></param>
+            <returns></returns>
+        </member>
         <member name="M:AdopteUnMatou.API.Controllers.AuthenticationController.Login(AdopteUnMatou.API.Models.Users.LoginModel)">
             <summary>
             Login a user to the API
@@ -49,10 +78,11 @@
             <param name="catModel"></param>
             <returns></returns>
         </member>
-        <member name="M:AdopteUnMatou.API.Controllers.CatsController.UpdateCat(AdopteUnMatou.API.Models.Cats.CatSubmitModel)">
+        <member name="M:AdopteUnMatou.API.Controllers.CatsController.UpdateCat(System.String,AdopteUnMatou.API.Models.Cats.CatSubmitModel)">
             <summary>
             Update a cat
             </summary>
+            <param name="id"></param>
             <param name="catModel"></param>
             <returns></returns>
         </member>
