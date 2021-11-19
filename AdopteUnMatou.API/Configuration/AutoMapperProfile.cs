@@ -1,4 +1,5 @@
 ﻿using AdopteUnMatou.API.Models.Cats;
+using AdopteUnMatou.API.Models.Users;
 using AutoMapper;
 using System;
 using System.Collections.Generic;
@@ -12,6 +13,7 @@ namespace AdopteUnMatou.API.Configuration
         public AutoMapperProfile()
         {
             CreateMap<CatSubmitModel, Cat>();
+            CreateMap<UserSubmitModel, User>();
         }
     }
 }

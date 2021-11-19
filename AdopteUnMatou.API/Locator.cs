@@ -17,6 +17,7 @@ namespace AdopteUnMatou.API
         {
             services.AddScoped<IAuthenticationService, AuthenticationService>();
             services.AddScoped<ICatsService, CatsService>();
+            services.AddScoped<IUsersService, UsersService>();
             services.AddScoped<IFilesService, FilesService>();
             services.AddScoped<IApplicationsService, ApplicationsService>();
 

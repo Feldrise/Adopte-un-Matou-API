@@ -9,7 +9,7 @@ namespace AdopteUnMatou.API.Services.Interfaces
     public interface IApplicationsService
     {
         Task<Application> GetApplication(string id);
-        Task<IList<Application>> GetApplications(bool shouldIncludeContent);
+        Task<IList<Application>> GetApplications(bool shouldIncludeContent, string userId);
 
         Task<string> CreateApplication(Application toCreate);
         Task UpdateApplication(Application toUpdate);

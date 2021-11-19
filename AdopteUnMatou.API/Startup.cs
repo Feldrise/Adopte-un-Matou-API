@@ -73,6 +73,14 @@ namespace AdopteUnMatou.API
                         .SetIsOriginAllowed((host) => true)
                         .AllowCredentials();
                 });
+
+                options.AddPolicy("productionPolicy", builder =>
+                {
+                    builder.WithOrigins("https://adopteunmatou.feldrise.com")
+                        .WithMethods("GET", "POST", "PUT", "DELETE")
+                        .AllowAnyHeader()
+                        .AllowCredentials();
+                });
             });
 
             services.AddControllers();
@@ -114,7 +122,7 @@ namespace AdopteUnMatou.API
                 app.UseDeveloperExceptionPage();
             }
 
-            app.UseCors("developerPolicy");
+            app.UseCors("productionPolicy");
 
             app.UseHttpsRedirection();
 

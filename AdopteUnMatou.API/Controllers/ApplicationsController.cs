@@ -29,10 +29,10 @@ namespace AdopteUnMatou.API.Controllers
         /// <param name="shouldIncludeContent"></param>
         /// <returns></returns>
         [HttpGet]
-        [Authorize(Roles = Roles.Admin)]
-        public async Task<ActionResult<IList<Application>>> GetApplications([FromQuery] bool shouldIncludeContent)
+        [Authorize]
+        public async Task<ActionResult<IList<Application>>> GetApplications([FromQuery] bool shouldIncludeContent, [FromQuery] string userId)
         {
-            IList<Application> applications = await _applicationsService.GetApplications(shouldIncludeContent);
+            IList<Application> applications = await _applicationsService.GetApplications(shouldIncludeContent, userId);
 
             return Ok(applications);
         }

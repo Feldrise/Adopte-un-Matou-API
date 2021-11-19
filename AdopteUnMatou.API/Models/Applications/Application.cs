@@ -18,6 +18,8 @@ namespace AdopteUnMatou.API.Models.Applications
         [BsonRepresentation(BsonType.ObjectId)]
         public string CatId { get; set; }
 
+        public DateTime Date { get; set; }
+
         public string ApplicationStep { get; set; }
 
         // General informations
@@ -34,7 +36,5 @@ namespace AdopteUnMatou.API.Models.Applications
         public string CatAge { get; set; }
         public int CatSex { get; set; }
         public string CatNature { get; set; }
-
-        public string CurrentStep { get; set; }
     }
 }

@@ -4,7 +4,7 @@
         <name>AdopteUnMatou.API</name>
     </assembly>
     <members>
-        <member name="M:AdopteUnMatou.API.Controllers.ApplicationsController.GetApplications(System.Boolean)">
+        <member name="M:AdopteUnMatou.API.Controllers.ApplicationsController.GetApplications(System.Boolean,System.String)">
             <summary>
             Get all applications
             </summary>
@@ -84,6 +84,34 @@
             </summary>
             <param name="id"></param>
             <param name="catModel"></param>
+            <returns></returns>
+        </member>
+        <member name="M:AdopteUnMatou.API.Controllers.UsersController.GetUsers(System.Boolean)">
+            <summary>
+            Get all users
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:AdopteUnMatou.API.Controllers.UsersController.GetUser(System.String)">
+            <summary>
+            Get a user by its id
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:AdopteUnMatou.API.Controllers.UsersController.GetUserImage(System.String)">
+            <summary>
+            Get a user image
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:AdopteUnMatou.API.Controllers.UsersController.UpdateUser(System.String,AdopteUnMatou.API.Models.Users.UserSubmitModel)">
+            <summary>
+            Update a user
+            </summary>
+            <param name="id"></param>
+            <param name="userModel"></param>
             <returns></returns>
         </member>
         <member name="P:AdopteUnMatou.API.Models.Cats.Cat.ImageId">
@@ -262,6 +290,35 @@
             <summary>
             The user's connection token
             </summary>
+        </member>
+        <member name="P:AdopteUnMatou.API.Models.Users.UserSubmitModel.ProfilePicture">
+            <summary>
+            The user's new profile picture
+            </summary>
+        </member>
+        <member name="P:AdopteUnMatou.API.Models.Users.UserSubmitModel.FirstName">
+            <summary>
+            The user's first name
+            </summary>
+            <example>Victor</example>
+        </member>
+        <member name="P:AdopteUnMatou.API.Models.Users.UserSubmitModel.LastName">
+            <summary>
+            The user's last name
+            </summary>
+            <example>DENIS</example>
+        </member>
+        <member name="P:AdopteUnMatou.API.Models.Users.UserSubmitModel.Email">
+            <summary>
+            The user's email
+            </summary>
+            <example>admin@feldrise.com</example>
+        </member>
+        <member name="P:AdopteUnMatou.API.Models.Users.UserSubmitModel.Role">
+            <summary>
+            The user's role. The roles are : Admin, Adoptant
+            </summary>
+            <example>Adoptant</example>
         </member>
     </members>
 </doc>

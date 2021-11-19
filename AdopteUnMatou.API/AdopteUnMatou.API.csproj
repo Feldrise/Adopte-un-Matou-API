@@ -6,7 +6,7 @@
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
     <NoWarn>1701;1702;1591;1587</NoWarn>
-    <DocumentationFile>C:\Users\victo\Documents\Projets\API\AdopteUnMatou\AdopteUnMatou.API\AdopteUnMatou.API.xml</DocumentationFile>
+    <DocumentationFile>C:\Users\victo\Documents\Projects\AdopteUnMatou\API\AdopteUnMatou.API\AdopteUnMatou.API.xml</DocumentationFile>
   </PropertyGroup>
 
   <ItemGroup>

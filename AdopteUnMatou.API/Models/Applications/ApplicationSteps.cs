@@ -5,12 +5,12 @@ using System.Threading.Tasks;
 
 namespace AdopteUnMatou.API.Models.Applications
 {
-    public class ApplicationSteps
+    public static class ApplicationSteps
     {
-        public static string Sent = "Sent";
-        public static string Meeting = "Meeting";
-        public static string FillingAdoption = "FillingAdoption";
-        public static string Finished = "Finished";
-        public static string Refused = "Refused";
+        public const string Sent = "Sent";
+        public const string Meeting = "Meeting";
+        public const string FillingAdoption = "FillingAdoption";
+        public const string Finished = "Finished";
+        public const string Refused = "Refused";
     }
 }
